@@ -87,7 +87,7 @@ module ClientSideValidations
           when 'min'
             options['greater_than_or_equal_to']
           when 'format'
-            options['with']
+            options['with'].gsub(/\\A/, '^').gsub(/\\z/, '$')
           when 'exclusion', 'inclusion'
             options['in']
           when 'islength'
