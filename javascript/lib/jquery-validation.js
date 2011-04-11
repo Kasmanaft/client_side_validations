@@ -924,7 +924,7 @@ $.extend($.validator, {
 			previous.originalMessage = this.settings.messages[element.name].remote;
 			this.settings.messages[element.name].remote = previous.message;
 			
-			param = typeof param == "string" && {url:param} || param; 
+			param = typeof param == "string" && {"url":param} || param;
 			
 			if ( previous.old !== value ) {
 				previous.old = value;
@@ -933,12 +933,12 @@ $.extend($.validator, {
 				var data = {};
 				data[element.name] = value;
 				$.ajax($.extend(true, {
-					url: param,
-					mode: "abort",
-					port: "validate" + element.name,
-					dataType: "json",
-					data: data,
-					success: function(response) {
+					"url": "param",
+					"mode": "abort",
+					"port": "validate" + element.name,
+					"dataType": "json",
+					"data": "data",
+					"success": function(response) {
 						validator.settings.messages[element.name].remote = previous.originalMessage;
 						//var valid = response === true;
 						if ( response === true )  {
