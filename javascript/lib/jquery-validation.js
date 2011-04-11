@@ -940,14 +940,14 @@ $.extend($.validator, {
 					data: data,
 					success: function(response) {
 						validator.settings.messages[element.name].remote = previous.originalMessage;
-						var valid = response === true;
-						if ( valid ) {
+						//var valid = response === true;
+						if ( response === true )  {
 							var submitted = validator.formSubmitted;
 							validator.prepareElement(element);
 							validator.formSubmitted = submitted;
 							validator.successList.push(element);
 							validator.showErrors();
-						} else {
+						} else if ( response === false ) {
 							var errors = {};
 							var message = (previous.message = response || validator.defaultMessage( element, "remote" ));
 							errors[element.name] = $.isFunction(message) ? message(value) : message;
